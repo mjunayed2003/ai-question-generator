@@ -1,23 +1,26 @@
-import { IsInt, IsString, Min } from "class-validator";
-
+import { ApiProperty } from '@nestjs/swagger';
+import { IsInt, IsString, Min } from 'class-validator';
 
 export class GenerateQuestionsDto {
-    @IsString()
-    topic: string;
+  @ApiProperty({ example: 'Photosynthesis' })
+  @IsString()
+  topic: string;
 
-    @IsInt()
-    @Min(0)
-    mcqCount: number;
+  @ApiProperty({ example: 10 })
+  @IsInt()
+  @Min(0)
+  mcqCount: number;
 
-    @IsInt()
-    @Min(0)
-    cqCount: number;
+  @ApiProperty({ example: 5 })
+  @IsInt()
+  @Min(0)
+  cqCount: number;
 
-    @IsString()
-    language: string;
+  @ApiProperty({ example: 'English' })
+  @IsString()
+  language: string;
 
-    @IsString()
-    difficulty: string;
-
+  @ApiProperty({ example: 'medium' })
+  @IsString()
+  difficulty: string;
 }
-

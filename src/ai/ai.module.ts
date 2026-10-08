@@ -1,9 +1,23 @@
 import { Module } from '@nestjs/common';
-import { AiService } from './ai.service.js';
+
 import { AiController } from './ai.controller.js';
+import { AiService } from './ai.service.js';
+
+import { GeminiProvider } from './provider/gemini.provider.js';
+
+import { AI_PROVIDER } from './interface/ai-provider.interface.js';
 
 @Module({
-  providers: [AiService],
-  controllers: [AiController]
+  controllers: [AiController],
+
+  providers: [
+    AiService,
+    GeminiProvider,
+
+    {
+      provide: AI_PROVIDER,
+      useExisting: GeminiProvider,
+    },
+  ],
 })
 export class AiModule {}

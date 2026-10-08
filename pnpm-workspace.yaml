@@ -1,2 +1,4 @@
 allowBuilds:
-  '@scarf/scarf': set this to true or false
+  '@scarf/scarf': false
+  '@google/genai': true
+  protobufjs: true

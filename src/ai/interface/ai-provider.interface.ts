@@ -1,9 +1,9 @@
+import { GenerateQuestionsDto } from "../dto/generate-questions.dto.js";
+
 export interface AIProvider {
-  generateQuestions(input: {
-    topic: string;
-    mcqCount: number;
-    cqCount: number;
-    language: string;
-    difficulty: string;
-  }): Promise<any>;
+  generateQuestions(
+    input: GenerateQuestionsDto,
+  ): Promise<any>;
 }
+
+export const AI_PROVIDER = 'AI_PROVIDER';
